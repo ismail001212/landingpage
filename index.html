@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AlgoGPT - دورة الذكاء الاصطناعي</title>
+  <title>Alogpt - دورة الذكاء الاصطناعي</title>
   <!-- Google Fonts, Font Awesome and AOS Library -->
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
@@ -23,13 +23,15 @@
       background-color: #f7f9fc;
       color: #333;
       line-height: 1.6;
+      /* Extra top padding to account for the fixed header */
+      padding-top: 120px;
     }
     a {
       text-decoration: none;
       color: inherit;
     }
     
-    /* Navigation */
+    /* Header - New Layout with Logo on Top */
     header {
       background: linear-gradient(135deg, #3a0ca3, #1a1a2e);
       padding: 1rem 2rem;
@@ -39,24 +41,43 @@
       width: 100%;
       z-index: 1000;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .nav-container {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
+    }
+    .logo-container {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 0.5rem;
     }
     .logo {
-      font-size: 1.8rem;
+      font-size: 2rem;
       font-weight: 700;
       color: #fff;
+      /* Logo animation */
+      animation: logoAnim 1s ease forwards;
+    }
+    @keyframes logoAnim {
+      0% { transform: scale(0.8); opacity: 0; }
+      50% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+    .nav-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
     }
     .nav-links {
       list-style: none;
       display: flex;
       align-items: center;
+      margin: 0;
+      padding: 0;
     }
     .nav-links li {
-      margin-left: 1.5rem;
+      margin: 0 1rem;
     }
     .nav-links a {
       color: #fff;
@@ -66,8 +87,15 @@
     .nav-links a:hover {
       color: #f72585;
     }
-    .lang-switcher {
-      margin-left: 2rem;
+    .lang-list {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      margin-left: 1rem;
+      padding: 0;
+    }
+    .lang-list li {
+      margin: 0 0.5rem;
     }
     .lang-btn {
       background: transparent;
@@ -75,7 +103,6 @@
       border-radius: 4px;
       padding: 0.3rem 0.6rem;
       color: #fff;
-      margin-left: 0.5rem;
       cursor: pointer;
       transition: background 0.3s ease, color 0.3s ease;
     }
@@ -84,7 +111,7 @@
       color: #3a0ca3;
     }
     
-    /* Hero Section with Animated Gradient Background */
+    /* Hero Section with Animated Gradient Background and Neural Network Canvas */
     @keyframes gradientBG {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
@@ -92,13 +119,13 @@
     }
     .hero {
       margin-top: 80px; /* Offset header height */
+      position: relative;
       background: linear-gradient(135deg, #3a0ca3, #1a1a2e);
       background-size: 200% 200%;
       animation: gradientBG 10s ease infinite;
       color: #fff;
       text-align: center;
       padding: 4rem 2rem;
-      position: relative;
       overflow: hidden;
     }
     .hero::before {
@@ -113,7 +140,22 @@
       background-position: center;
       opacity: 0.15;
       filter: blur(5px);
+      z-index: -2;
+    }
+    /* Neural Network Canvas for Dark Background (Hero) */
+    #nn-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       z-index: -1;
+      pointer-events: none;
+    }
+    /* Hero Content Wrapper */
+    .hero-content {
+      position: relative;
+      z-index: 1;
     }
     .hero .impact-text {
       font-size: 1.5rem;
@@ -150,6 +192,30 @@
     .cta-btn:hover {
       background: #d61c6b;
       transform: scale(1.05);
+    }
+    
+    /* White Background Neural Network Section */
+    .nn-white-section {
+      position: relative;
+      background-color: #fff;
+      overflow: hidden;
+      padding: 4rem 2rem;
+      min-height: 300px;
+    }
+    #nn-white-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .nn-white-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      color: #333;
     }
     
     /* Features Section */
@@ -428,32 +494,54 @@
     @media (max-width: 768px) {
       .hero h1 { font-size: 2.5rem; }
       .impact-text { font-size: 1.3rem; }
+      .nav-container {
+        flex-direction: column;
+      }
+      .lang-list {
+        margin-top: 0.5rem;
+        margin-left: 0;
+      }
     }
   </style>
 </head>
 <body>
   <!-- Navigation -->
   <header data-aos="fade-down" data-aos-duration="1000">
-    <div class="nav-container">
-      <div class="logo"><span>Algo</span>GPT</div>
+    <div class="logo-container">
+      <div class="logo">Alogpt</div>
+    </div>
+    <nav class="nav-container">
       <ul class="nav-links" id="nav-links">
         <!-- Navigation items will be injected here -->
       </ul>
-      <div class="lang-switcher">
-        <button class="lang-btn" onclick="updateContent('mor')">مغربي</button>
-        <button class="lang-btn" onclick="updateContent('ksa')">سعودي</button>
-        <button class="lang-btn" onclick="updateContent('egy')">مصري</button>
-      </div>
-    </div>
+      <ul class="lang-list">
+        <li><button class="lang-btn" onclick="updateContent('mor')">مغربي</button></li>
+        <li><button class="lang-btn" onclick="updateContent('ksa')">سعودي</button></li>
+        <li><button class="lang-btn" onclick="updateContent('egy')">مصري</button></li>
+      </ul>
+    </nav>
   </header>
   
-  <!-- Hero Section -->
+  <!-- Hero Section with Dark Background Neural Network Animation -->
   <section class="hero" id="hero" data-aos="fade-up" data-aos-duration="1000">
-    <div class="impact-text" id="hero-impact"></div>
-    <div class="hero-promo" id="hero-promo"></div>
-    <h1 id="hero-title"></h1>
-    <p id="hero-desc"></p>
-    <a href="#pricing" class="cta-btn" id="hero-cta"></a>
+    <!-- Neural network moving background (dark theme) -->
+    <canvas id="nn-canvas"></canvas>
+    <div class="hero-content">
+      <div class="impact-text" id="hero-impact"></div>
+      <div class="hero-promo" id="hero-promo"></div>
+      <h1 id="hero-title"></h1>
+      <p id="hero-desc"></p>
+      <a href="#pricing" class="cta-btn" id="hero-cta"></a>
+    </div>
+  </section>
+  
+  <!-- White Background Neural Network Section -->
+  <section class="nn-white-section" id="nn-white-section" data-aos="fade-up" data-aos-duration="1000">
+    <canvas id="nn-white-canvas"></canvas>
+    <div class="nn-white-content">
+      <h2>Neural Networks on White Background</h2>
+      <p>This section demonstrates moving neural networks over a white background.</p>
+    </div>
   </section>
   
   <!-- Features Section -->
@@ -517,7 +605,7 @@
     <p id="footer-copy"></p>
   </footer>
   
-  <!-- Language & Content Script -->
+  <!-- Language, Content and Neural Network Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
     // Translations for Moroccan Darija (mor), Saudi (ksa) and Egyptian (egy)
@@ -579,7 +667,7 @@
           }
         },
         "footer": {
-          "logo": "AlgoGPT",
+          "logo": "Alogpt",
           "links": ["الرئيسية", "المميزات", "الثمن", "الشهادات", "تواصل معانا"],
           "copyright": "جميع الحقوق محفوظة © alogpt.com 2025"
         }
@@ -641,7 +729,7 @@
           }
         },
         "footer": {
-          "logo": "AlgoGPT",
+          "logo": "Alogpt",
           "links": ["الرئيسية", "المميزات", "الأسعار", "الشهادات", "اتصل بنا"],
           "copyright": "جميع الحقوق محفوظة © alogpt.com 2025"
         }
@@ -703,14 +791,14 @@
           }
         },
         "footer": {
-          "logo": "AlgoGPT",
+          "logo": "Alogpt",
           "links": ["الرئيسية", "المميزات", "الأسعار", "الشهادات", "اتصل بينا"],
           "copyright": "جميع الحقوق محفوظة © alogpt.com 2025"
         }
       }
     };
 
-    // Update content based on selected language code with animations
+    // Update content based on selected language with animations
     function updateContent(lang) {
       const t = translations[lang];
       
@@ -805,10 +893,138 @@
       AOS.refresh();
     }
 
-    // On page load, set default language as Moroccan Darija and initialize AOS
+    // Neural Network Animation for Dark Background (Hero)
+    function neuralNetworkAnimation() {
+      const canvas = document.getElementById('nn-canvas');
+      const ctx = canvas.getContext('2d');
+      
+      // Resize canvas to hero section size
+      function resizeCanvas() {
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+      }
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+      
+      // Create particles for the neural network effect (white nodes)
+      const particles = [];
+      const particleCount = 50; // Adjust number of nodes if needed
+      function Particle() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
+        this.radius = 4; // Increased radius for bigger, clearer neurons
+      }
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+      
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        // Enable shadow for clarity
+        ctx.shadowColor = 'rgba(255, 255, 255, 1)';
+        ctx.shadowBlur = 4;
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          p.x += p.vx;
+          p.y += p.vy;
+          if(p.x < 0 || p.x > canvas.width) p.vx = -p.vx;
+          if(p.y < 0 || p.y > canvas.height) p.vy = -p.vy;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+          ctx.fill();
+        }
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            if(distance < 100) {
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = 'rgba(255,255,255,' + (1 - distance / 100) + ')';
+              ctx.lineWidth = 1;
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(draw);
+      }
+      draw();
+    }
+
+    // Neural Network Animation for White Background Section (Dark Nodes)
+    function neuralNetworkAnimationWhite() {
+      const canvas = document.getElementById('nn-white-canvas');
+      const ctx = canvas.getContext('2d');
+      
+      // Resize canvas to section size
+      function resizeCanvas() {
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+      }
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+      
+      // Create particles for neural network effect (dark nodes)
+      const particles = [];
+      const particleCount = 50; // Adjust number of nodes if needed
+      function Particle() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
+        this.radius = 4; // Increased radius for bigger, clearer neurons
+      }
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+      
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        // Enable shadow for clarity
+        ctx.shadowColor = 'rgba(0, 0, 0, 1)';
+        ctx.shadowBlur = 4;
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          p.x += p.vx;
+          p.y += p.vy;
+          if(p.x < 0 || p.x > canvas.width) p.vx = -p.vx;
+          if(p.y < 0 || p.y > canvas.height) p.vy = -p.vy;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
+          ctx.fill();
+        }
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            if(distance < 100) {
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = 'rgba(0, 0, 0, ' + (1 - distance / 100) + ')';
+              ctx.lineWidth = 1;
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(draw);
+      }
+      draw();
+    }
+    
+    // On page load: set default language, initialize AOS and animations
     window.onload = function() {
       updateContent('mor');
       AOS.init({ duration: 800, easing: 'ease-out', once: true });
+      neuralNetworkAnimation();
+      neuralNetworkAnimationWhite();
     }
   </script>
 </body>
