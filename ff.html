@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AlgoGPT - دورة الذكاء الاصطناعي</title>
+  <!-- Google Fonts, Font Awesome and AOS Library -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <style>
+    /* Global Styles and Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Tajawal', sans-serif;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background-color: #f7f9fc;
+      color: #333;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    /* Navigation */
+    header {
+      background: linear-gradient(135deg, #3a0ca3, #1a1a2e);
+      padding: 1rem 2rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+    .nav-links li {
+      margin-left: 1.5rem;
+    }
+    .nav-links a {
+      color: #fff;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    .nav-links a:hover {
+      color: #f72585;
+    }
+    .lang-switcher {
+      margin-left: 2rem;
+    }
+    .lang-btn {
+      background: transparent;
+      border: 1px solid #fff;
+      border-radius: 4px;
+      padding: 0.3rem 0.6rem;
+      color: #fff;
+      margin-left: 0.5rem;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .lang-btn:hover {
+      background: #fff;
+      color: #3a0ca3;
+    }
+    
+    /* Hero Section with Animated Gradient Background */
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .hero {
+      margin-top: 80px; /* Offset header height */
+      background: linear-gradient(135deg, #3a0ca3, #1a1a2e);
+      background-size: 200% 200%;
+      animation: gradientBG 10s ease infinite;
+      color: #fff;
+      text-align: center;
+      padding: 4rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: url('https://source.unsplash.com/1600x900/?technology,ai');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.15;
+      filter: blur(5px);
+      z-index: -1;
+    }
+    .hero .impact-text {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.45);
+      border-radius: 8px;
+      display: inline-block;
+    }
+    .hero .hero-promo {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: #ffeb3b;
+      font-weight: bold;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+    .cta-btn {
+      background: #f72585;
+      color: #fff;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-weight: bold;
+      text-transform: uppercase;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .cta-btn:hover {
+      background: #d61c6b;
+      transform: scale(1.05);
+    }
+    
+    /* Features Section */
+    .features {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .features h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #3a0ca3;
+    }
+    .features p {
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      color: #555;
+    }
+    .feature-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .feature-card {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    .feature-card i {
+      font-size: 2.5rem;
+      color: #f72585;
+      margin-bottom: 1rem;
+    }
+    .feature-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: #1a1a2e;
+    }
+    .feature-card p {
+      font-size: 1rem;
+      color: #666;
+    }
+    
+    /* Pricing Section */
+    .pricing {
+      background: #f1f4f8;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .pricing h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #3a0ca3;
+    }
+    .pricing p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      color: #555;
+    }
+    .pricing-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .pricing-card {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .pricing-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    .pricing-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #1a1a2e;
+    }
+    .price {
+      font-size: 2rem;
+      color: #f72585;
+      margin-bottom: 1rem;
+      font-weight: bold;
+    }
+    .pricing-card ul {
+      list-style: none;
+      text-align: right;
+      margin-bottom: 1.5rem;
+      padding-right: 1rem;
+    }
+    .pricing-card ul li {
+      margin: 0.5rem 0;
+      font-size: 1rem;
+      color: #555;
+    }
+    .buy-btn {
+      background: #3a0ca3;
+      color: #fff;
+      padding: 0.8rem;
+      border-radius: 50px;
+      font-weight: bold;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .buy-btn:hover {
+      background: #1a1a2e;
+      transform: scale(1.03);
+    }
+    
+    /* Testimonials Section */
+    .testimonials {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .testimonials h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #3a0ca3;
+    }
+    .testimonials p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      color: #555;
+    }
+    .testimonial-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .testimonial-card {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+    }
+    .testimonial-card p {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 1rem;
+    }
+    .client {
+      font-weight: bold;
+      color: #1a1a2e;
+      font-size: 1.1rem;
+    }
+    
+    /* Technologies Section */
+    .technologies {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: #fff;
+    }
+    .technologies h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #3a0ca3;
+    }
+    .technologies p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      color: #555;
+    }
+    .tech-logos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .tech-logos img {
+      height: 50px;
+      transition: transform 0.3s ease;
+    }
+    .tech-logos img:hover {
+      transform: scale(1.1);
+    }
+    
+    /* Contact Section */
+    .contact {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: #fff;
+    }
+    .contact h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #3a0ca3;
+    }
+    .contact p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      color: #555;
+    }
+    .contact form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+    .contact input,
+    .contact textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .contact button {
+      padding: 0.8rem;
+      background: #3a0ca3;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .contact button:hover {
+      background: #1a1a2e;
+      transform: scale(1.03);
+    }
+    
+    /* Footer */
+    footer {
+      background: #1a1a2e;
+      color: #ccc;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    .footer-logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+    footer ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      padding: 1rem 0;
+    }
+    footer ul li {
+      margin: 0 1rem;
+    }
+    footer ul li a {
+      color: #ccc;
+      transition: color 0.3s ease;
+    }
+    footer ul li a:hover {
+      color: #f72585;
+    }
+    footer p {
+      font-size: 0.9rem;
+      margin-top: 1rem;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.5rem; }
+      .impact-text { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <header data-aos="fade-down" data-aos-duration="1000">
+    <div class="nav-container">
+      <div class="logo"><span>Algo</span>GPT</div>
+      <ul class="nav-links" id="nav-links">
+        <!-- Navigation items will be injected here -->
+      </ul>
+      <div class="lang-switcher">
+        <button class="lang-btn" onclick="updateContent('mor')">مغربي</button>
+        <button class="lang-btn" onclick="updateContent('ksa')">سعودي</button>
+        <button class="lang-btn" onclick="updateContent('egy')">مصري</button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Hero Section -->
+  <section class="hero" id="hero" data-aos="fade-up" data-aos-duration="1000">
+    <div class="impact-text" id="hero-impact"></div>
+    <div class="hero-promo" id="hero-promo"></div>
+    <h1 id="hero-title"></h1>
+    <p id="hero-desc"></p>
+    <a href="#pricing" class="cta-btn" id="hero-cta"></a>
+  </section>
+  
+  <!-- Features Section -->
+  <section class="features" id="features" data-aos="fade-up" data-aos-duration="1000">
+    <h2 id="features-title"></h2>
+    <p id="features-desc"></p>
+    <div class="feature-cards" id="features-cards">
+      <!-- Feature cards will be injected here -->
+    </div>
+  </section>
+  
+  <!-- Pricing Section -->
+  <section class="pricing" id="pricing" data-aos="fade-up" data-aos-duration="1000">
+    <h2 id="pricing-title"></h2>
+    <p id="pricing-desc"></p>
+    <div class="pricing-cards" id="pricing-cards">
+      <!-- Pricing cards will be injected here -->
+    </div>
+  </section>
+  
+  <!-- Testimonials Section -->
+  <section class="testimonials" id="testimonials" data-aos="fade-up" data-aos-duration="1000">
+    <h2 id="testimonials-title"></h2>
+    <p id="testimonials-desc"></p>
+    <div class="testimonial-cards" id="testimonials-cards">
+      <!-- Testimonial cards will be injected here -->
+    </div>
+  </section>
+  
+  <!-- Technologies Section -->
+  <section class="technologies" id="technologies" data-aos="fade-up" data-aos-duration="1000">
+    <h2 id="tech-title"></h2>
+    <p id="tech-desc"></p>
+    <div class="tech-logos" id="tech-logos">
+      <img src="https://pytorch.org/assets/images/pytorch-logo.png" alt="PyTorch">
+      <img src="https://www.tensorflow.org/images/tf_logo_social.png" alt="TensorFlow">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Keras_logo.svg/1200px-Keras_logo.svg.png" alt="Keras">
+      <img src="https://scikit-learn.org/stable/_static/images/logo_small.png" alt="scikit-learn">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/NumPy_logo_2020.svg" alt="NumPy">
+    </div>
+  </section>
+  
+  <!-- Contact Section -->
+  <section class="contact" id="contact" data-aos="fade-up" data-aos-duration="1000">
+    <h2 id="contact-title"></h2>
+    <p id="contact-desc"></p>
+    <form>
+      <input type="text" id="contact-name" placeholder="">
+      <input type="email" id="contact-email" placeholder="">
+      <textarea id="contact-message" rows="4" placeholder=""></textarea>
+      <button type="submit" id="contact-button"></button>
+    </form>
+  </section>
+  
+  <!-- Footer -->
+  <footer data-aos="fade-up" data-aos-duration="1000">
+    <div class="footer-logo" id="footer-logo"></div>
+    <ul id="footer-links">
+      <!-- Footer links will be injected here -->
+    </ul>
+    <p id="footer-copy"></p>
+  </footer>
+  
+  <!-- Language & Content Script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    // Translations for Moroccan Darija (mor), Saudi (ksa) and Egyptian (egy)
+    const translations = {
+      "mor": {
+        "nav": {
+          "home": "الرئيسية",
+          "features": "المميزات",
+          "pricing": "الثمن",
+          "testimonials": "الشهادات",
+          "contact": "تواصل معانا"
+        },
+        "hero": {
+          "impact": "ماشي مهم واش كتقرا ولا كتخدم، هاد الدورة تقدر تبدل حياتك حرفياً!",
+          "promo": "ما تضيعش الفرصة، استثمر فمستقبلك دابا!",
+          "title": "تعلَّم الذكاء الاصطناعي بطريقة عصرية",
+          "desc": "انضم لينا ودير الفرق فمستقبلك – الدورة شاملة بـ200 د.م فقط.",
+          "cta": "سجل دابا"
+        },
+        "features": {
+          "title": "مميزات الدورة",
+          "desc": "استفد من منهجية تعليمية كتجمع بين العلم والتطبيق باستخدام أحدث التقنيات.",
+          "cards": [
+            {"icon": "fas fa-laptop-code", "title": "تطبيق عملي", "desc": "اتعلم من خلال مشاريع وتطبيقات واقعية."},
+            {"icon": "fas fa-chalkboard-teacher", "title": "مدربين محترفين", "desc": "تعليم من نخبة من الخبراء."},
+            {"icon": "fas fa-bolt", "title": "أحدث التقنيات", "desc": "اكتشف كل جديد فمجال الذكاء الاصطناعي."},
+            {"icon": "fas fa-user-graduate", "title": "شهادات معتمدة", "desc": "حصّل شهادة تفتح لك آفاق جديدة."}
+          ]
+        },
+        "pricing": {
+          "title": "ثمن الدورة",
+          "desc": "الدورة بـ200 د.م فقط – أو 20 دولار فالأسواق العالمية.",
+          "cards": [
+            {"plan": "الخطة الأساسية", "price": "200 د.م", "features": ["الوصول للمحتوى الدراسي", "دعم فني أساسي"]},
+            {"plan": "الخطة الشاملة", "price": "200 د.م / 20$", "features": ["الوصول الكامل للدورة", "جلسات مباشرة", "شهادة معتمدة"]}
+          ]
+        },
+        "testimonials": {
+          "title": "آراء المشاركين",
+          "desc": "شوف شنو قالو الناس اللي جربو الدورة وتبدلات حياتهم.",
+          "cards": [
+            {"text": "الدورة غيرت حياتي وتعلمت مهارات جديدة فعلاً.", "client": "أمين"},
+            {"text": "المحتوى عملي ومفيد – فرصة ماتتعوضش.", "client": "منى"},
+            {"text": "تجربة مميزة ساعدتني نطور من نفسي فالمجال.", "client": "سفيان"}
+          ]
+        },
+        "technologies": {
+          "title": "التقنيات المستخدمة",
+          "desc": "شوف التقنيات والشركاء اللي كنستعملوهم لتطوير الدورة."
+        },
+        "contact": {
+          "title": "تواصل معانا",
+          "desc": "عندك أي سؤال؟ سيفط لينا رسالة وغادي نجاوبوك.",
+          "form": {
+            "name": "سميتك",
+            "email": "البريد الإلكتروني ديالك",
+            "message": "رسالتك",
+            "button": "سيفط"
+          }
+        },
+        "footer": {
+          "logo": "AlgoGPT",
+          "links": ["الرئيسية", "المميزات", "الثمن", "الشهادات", "تواصل معانا"],
+          "copyright": "جميع الحقوق محفوظة © alogpt.com 2025"
+        }
+      },
+      "ksa": {
+        "nav": {
+          "home": "الرئيسية",
+          "features": "المميزات",
+          "pricing": "الأسعار",
+          "testimonials": "الشهادات",
+          "contact": "اتصل بنا"
+        },
+        "hero": {
+          "impact": "مهما كان وضعك الحالي، هالدورة بتغيّر حياتك حرفياً!",
+          "promo": "لا تفوت الفرصة، استثمر في مستقبلك الآن!",
+          "title": "تعلم الذكاء الاصطناعي بطريقة حديثة",
+          "desc": "استعد لتطوير مسارك المهني مع دورة شاملة بسعر 20 دولار فقط.",
+          "cta": "سجل الآن"
+        },
+        "features": {
+          "title": "مميزات الدورة",
+          "desc": "استفد من أحدث التقنيات ومنهجية تعليمية متطورة تجمع بين النظرية والتطبيق.",
+          "cards": [
+            {"icon": "fas fa-laptop-code", "title": "تطبيق عملي", "desc": "تعلم من خلال مشاريع عملية وتطبيقات واقعية."},
+            {"icon": "fas fa-chalkboard-teacher", "title": "مدربين محترفين", "desc": "استفد من خبرات أفضل المختصين."},
+            {"icon": "fas fa-bolt", "title": "أحدث التقنيات", "desc": "اطلع على كل ما هو جديد في مجال الذكاء الاصطناعي."},
+            {"icon": "fas fa-user-graduate", "title": "شهادات معتمدة", "desc": "احصل على شهادة معترف بها تفتح لك آفاقاً جديدة."}
+          ]
+        },
+        "pricing": {
+          "title": "الأسعار",
+          "desc": "الدورة بـ20 دولار فقط، فرصة استثنائية لتطوير مهاراتك.",
+          "cards": [
+            {"plan": "الخطة الأساسية", "price": "$20", "features": ["الوصول للمحتوى التعليمي", "دعم فني"]},
+            {"plan": "الخطة الشاملة", "price": "$20", "features": ["الوصول الكامل للدورة", "جلسات مباشرة", "شهادة معتمدة"]}
+          ]
+        },
+        "testimonials": {
+          "title": "آراء العملاء",
+          "desc": "اطلع على تجارب المشاركين الذين شهدوا تحولاً في حياتهم.",
+          "cards": [
+            {"text": "الدورة غيرت حياتي ورفعت من مستوى مهاراتي.", "client": "سارة"},
+            {"text": "محتوى مميز وتفاعل عالي من المدربين.", "client": "محمد"},
+            {"text": "تجربة تعليمية راقية ستحدث فرقاً في مستقبلك.", "client": "فهد"}
+          ]
+        },
+        "technologies": {
+          "title": "التقنيات المستخدمة",
+          "desc": "اطلع على التقنيات والشركاء الذين نستخدمهم لتطوير الدورة."
+        },
+        "contact": {
+          "title": "اتصل بنا",
+          "desc": "إذا كان لديك أي استفسار، نحن هنا لمساعدتك.",
+          "form": {
+            "name": "اسمك",
+            "email": "بريدك الإلكتروني",
+            "message": "رسالتك",
+            "button": "إرسال"
+          }
+        },
+        "footer": {
+          "logo": "AlgoGPT",
+          "links": ["الرئيسية", "المميزات", "الأسعار", "الشهادات", "اتصل بنا"],
+          "copyright": "جميع الحقوق محفوظة © alogpt.com 2025"
+        }
+      },
+      "egy": {
+        "nav": {
+          "home": "الرئيسية",
+          "features": "المميزات",
+          "pricing": "الأسعار",
+          "testimonials": "الشهادات",
+          "contact": "اتصل بينا"
+        },
+        "hero": {
+          "impact": "مهما كان وضعك، الدورة دي هتغير حياتك بجد!",
+          "promo": "ما تفوتش الفرصة، استثمر في نفسك ودوس على النجاح دلوقتي!",
+          "title": "اتعلم الذكاء الاصطناعي بطريقة عصرية",
+          "desc": "حان وقت تغيير مستقبلك مع دورة متكاملة بسعر 20 دولار بس.",
+          "cta": "سجل دلوقتي"
+        },
+        "features": {
+          "title": "مميزات الدورة",
+          "desc": "استفيد من أحدث التقنيات ومنهجية تعليمية تجمع بين العلم والتطبيق العملي.",
+          "cards": [
+            {"icon": "fas fa-laptop-code", "title": "تطبيق عملي", "desc": "اتعلم من خلال مشاريع عملية وتطبيقات حقيقية."},
+            {"icon": "fas fa-chalkboard-teacher", "title": "مدربين محترفين", "desc": "استفد من خبرة أفضل المدربين في المجال."},
+            {"icon": "fas fa-bolt", "title": "أحدث التقنيات", "desc": "خليك دايمًا في الصورة مع آخر التطورات في الذكاء الاصطناعي."},
+            {"icon": "fas fa-user-graduate", "title": "شهادات معتمدة", "desc": "احصل على شهادة تثبت مهاراتك وتفتحلك أبواب كتير."}
+          ]
+        },
+        "pricing": {
+          "title": "الأسعار",
+          "desc": "الدورة بـ20 دولار بس، فرصة كبيرة لتطوير نفسك ومستقبلك.",
+          "cards": [
+            {"plan": "الخطة الأساسية", "price": "$20", "features": ["الوصول للمحتوى", "دعم فني"]},
+            {"plan": "الخطة الشاملة", "price": "$20", "features": ["الوصول الكامل للدورة", "جلسات مباشرة", "شهادة معتمدة"]}
+          ]
+        },
+        "testimonials": {
+          "title": "آراء المتدربين",
+          "desc": "شوف آراء الناس اللي جربوا الدورة وتغيرت حياتهم.",
+          "cards": [
+            {"text": "الدورة دي فتحت لي أبواب جديدة في شغلي وغيّرت حياتي تماماً.", "client": "أحمد"},
+            {"text": "تجربة تعليمية مميزة مع محتوى عملي ومدربين محترفين.", "client": "منى"},
+            {"text": "الدورة كانت خطوة كبيرة في تطوير ذاتي ومستقبلي.", "client": "عمرو"}
+          ]
+        },
+        "technologies": {
+          "title": "التقنيات المستخدمة",
+          "desc": "شوف التقنيات والشركاء اللي بنشتغل بيهم عشان تطور مهاراتك."
+        },
+        "contact": {
+          "title": "اتصل بينا",
+          "desc": "لو عندك أي سؤال أو استفسار، ابعتلنا رسالة وإحنا هنتواصل معاك.",
+          "form": {
+            "name": "اسمك",
+            "email": "إيميلك",
+            "message": "رسالتك",
+            "button": "إرسال"
+          }
+        },
+        "footer": {
+          "logo": "AlgoGPT",
+          "links": ["الرئيسية", "المميزات", "الأسعار", "الشهادات", "اتصل بينا"],
+          "copyright": "جميع الحقوق محفوظة © alogpt.com 2025"
+        }
+      }
+    };
+
+    // Update content based on selected language code with animations
+    function updateContent(lang) {
+      const t = translations[lang];
+      
+      // Update Navigation
+      const navLinks = document.getElementById('nav-links');
+      navLinks.innerHTML = `
+        <li><a href="#hero">${t.nav.home}</a></li>
+        <li><a href="#features">${t.nav.features}</a></li>
+        <li><a href="#pricing">${t.nav.pricing}</a></li>
+        <li><a href="#testimonials">${t.nav.testimonials}</a></li>
+        <li><a href="#contact">${t.nav.contact}</a></li>
+      `;
+
+      // Update Hero Section
+      document.getElementById('hero-impact').innerText = t.hero.impact;
+      document.getElementById('hero-promo').innerText = t.hero.promo;
+      document.getElementById('hero-title').innerText = t.hero.title;
+      document.getElementById('hero-desc').innerText = t.hero.desc;
+      document.getElementById('hero-cta').innerText = t.hero.cta;
+
+      // Update Features Section
+      document.getElementById('features-title').innerText = t.features.title;
+      document.getElementById('features-desc').innerText = t.features.desc;
+      const featuresCards = document.getElementById('features-cards');
+      featuresCards.innerHTML = "";
+      t.features.cards.forEach((card, index) => {
+        featuresCards.innerHTML += `
+          <div class="feature-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="${index * 150}">
+            <i class="${card.icon}"></i>
+            <h3>${card.title}</h3>
+            <p>${card.desc}</p>
+          </div>
+        `;
+      });
+
+      // Update Pricing Section
+      document.getElementById('pricing-title').innerText = t.pricing.title;
+      document.getElementById('pricing-desc').innerText = t.pricing.desc;
+      const pricingCards = document.getElementById('pricing-cards');
+      pricingCards.innerHTML = "";
+      t.pricing.cards.forEach((card, index) => {
+        let featuresList = "";
+        card.features.forEach(feat => {
+          featuresList += `<li>${feat}</li>`;
+        });
+        pricingCards.innerHTML += `
+          <div class="pricing-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="${index * 150}">
+            <h3>${card.plan}</h3>
+            <div class="price">${card.price}</div>
+            <ul>${featuresList}</ul>
+            <a href="#" class="buy-btn">${t.hero.cta}</a>
+          </div>
+        `;
+      });
+
+      // Update Testimonials Section
+      document.getElementById('testimonials-title').innerText = t.testimonials.title;
+      document.getElementById('testimonials-desc').innerText = t.testimonials.desc;
+      const testimonialsCards = document.getElementById('testimonials-cards');
+      testimonialsCards.innerHTML = "";
+      t.testimonials.cards.forEach((card, index) => {
+        testimonialsCards.innerHTML += `
+          <div class="testimonial-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="${index * 150}">
+            <p>"${card.text}"</p>
+            <div class="client">- ${card.client}</div>
+          </div>
+        `;
+      });
+
+      // Update Technologies Section
+      document.getElementById('tech-title').innerText = t.technologies.title;
+      document.getElementById('tech-desc').innerText = t.technologies.desc;
+
+      // Update Contact Section
+      document.getElementById('contact-title').innerText = t.contact.title;
+      document.getElementById('contact-desc').innerText = t.contact.desc;
+      document.getElementById('contact-name').placeholder = t.contact.form.name;
+      document.getElementById('contact-email').placeholder = t.contact.form.email;
+      document.getElementById('contact-message').placeholder = t.contact.form.message;
+      document.getElementById('contact-button').innerText = t.contact.form.button;
+
+      // Update Footer
+      document.getElementById('footer-logo').innerText = t.footer.logo;
+      const footerLinks = document.getElementById('footer-links');
+      footerLinks.innerHTML = "";
+      t.footer.links.forEach(link => {
+        footerLinks.innerHTML += `<li><a href="#">${link}</a></li>`;
+      });
+      document.getElementById('footer-copy').innerText = t.footer.copyright;
+      
+      // Refresh AOS animations after content update
+      AOS.refresh();
+    }
+
+    // On page load, set default language as Moroccan Darija and initialize AOS
+    window.onload = function() {
+      updateContent('mor');
+      AOS.init({ duration: 800, easing: 'ease-out', once: true });
+    }
+  </script>
+</body>
+</html>
