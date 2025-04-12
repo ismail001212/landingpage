@@ -1,16 +1,43 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+  <!-- Primary Meta Tags -->
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Enhancement -->
   <title>Alogpt - دورة الذكاء الاصطناعي</title>
-  <!-- Google Fonts, Font Awesome and AOS Library -->
+  <meta name="description" content="تعلم الذكاء الاصطناعي بطريقة عصرية مع دورة شاملة للمبتدئين والمحترفين. انضم الآن لتطوير مهاراتك نحو مستقبل واعد.">
+  <meta name="keywords" content="الذكاء الاصطناعي, AI, تعلم الآلة, الدورة, تعلم, Alogpt, Neural Networks, Machine Learning">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Social Media / Open Graph Meta Tags -->
+  <meta property="og:title" content="Alogpt - دورة الذكاء الاصطناعي">
+  <meta property="og:description" content="دورة شاملة في الذكاء الاصطناعي لتطوير مهاراتك نحو مستقبل واعد.">
+  <meta property="og:image" content="https://source.unsplash.com/1200x675/?technology,ai">
+  <meta property="og:url" content="https://www.alogpt.com">
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <!-- Canonical Link -->
+  <link rel="canonical" href="https://www.alogpt.com">
+
+  <!-- Preconnect for external resources -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+  <!-- Google Fonts and Font Awesome -->
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <!-- AOS Library loaded with defer -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  
   <style>
-    /* Global Styles and Reset */
-    * {
+    /***********************************************/
+    /*                  RESET & GLOBAL             */
+    /***********************************************/
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -23,15 +50,19 @@
       background-color: #f7f9fc;
       color: #333;
       line-height: 1.6;
-      /* Extra top padding to account for the fixed header */
-      padding-top: 120px;
     }
     a {
       text-decoration: none;
       color: inherit;
     }
-    
-    /* Header - New Layout with Logo on Top */
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    /***********************************************/
+    /*                  HEADER                     */
+    /***********************************************/
     header {
       background: linear-gradient(135deg, #3a0ca3, #1a1a2e);
       padding: 1rem 2rem;
@@ -54,7 +85,6 @@
       font-size: 2rem;
       font-weight: 700;
       color: #fff;
-      /* Logo animation */
       animation: logoAnim 1s ease forwards;
     }
     @keyframes logoAnim {
@@ -110,22 +140,22 @@
       background: #fff;
       color: #3a0ca3;
     }
-    
-    /* Hero Section with Animated Gradient Background and Neural Network Canvas */
+    /***********************************************/
+    /*              HERO SECTION                   */
+    /***********************************************/
     @keyframes gradientBG {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
     .hero {
-      margin-top: 80px; /* Offset header height */
       position: relative;
       background: linear-gradient(135deg, #3a0ca3, #1a1a2e);
       background-size: 200% 200%;
       animation: gradientBG 10s ease infinite;
       color: #fff;
       text-align: center;
-      padding: 4rem 2rem;
+      padding: 8rem 2rem 4rem;
       overflow: hidden;
     }
     .hero::before {
@@ -135,14 +165,13 @@
       right: 0;
       bottom: 0;
       left: 0;
-      background-image: url('https://source.unsplash.com/1600x900/?technology,ai');
+      background-image: url('https://source.unsplash.com/1200x675/?technology,ai');
       background-size: cover;
       background-position: center;
       opacity: 0.15;
       filter: blur(5px);
       z-index: -2;
     }
-    /* Neural Network Canvas for Dark Background (Hero) */
     #nn-canvas {
       position: absolute;
       top: 0;
@@ -152,10 +181,10 @@
       z-index: -1;
       pointer-events: none;
     }
-    /* Hero Content Wrapper */
     .hero-content {
       position: relative;
       z-index: 1;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
     }
     .hero .impact-text {
       font-size: 1.5rem;
@@ -187,14 +216,41 @@
       border-radius: 50px;
       font-weight: bold;
       text-transform: uppercase;
-      transition: background 0.3s ease, transform 0.3s ease;
+      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      display: inline-block;
     }
     .cta-btn:hover {
       background: #d61c6b;
       transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
-    
-    /* White Background Neural Network Section */
+    /* Inline Technologies in Hero Section */
+    .tech-section {
+      margin-top: 2rem;
+      text-align: center;
+    }
+    .tech-title-inline {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+    .tech-desc-inline {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+    .tech-logos-inline {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .tech-logos-inline img {
+      height: 40px;
+    }
+    /***********************************************/
+    /*        WHITE NEURAL NETWORK SECTION         */
+    /***********************************************/
     .nn-white-section {
       position: relative;
       background-color: #fff;
@@ -217,8 +273,21 @@
       text-align: center;
       color: #333;
     }
-    
-    /* Features Section */
+    .nn-white-content h2 {
+      font-size: 2.5rem;
+      color: #3a0ca3;
+      margin-bottom: 1rem;
+    }
+    .nn-white-content p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+      color: #555;
+      line-height: 1.5;
+    }
+    /***********************************************/
+    /*                 FEATURES                    */
+    /***********************************************/
     .features {
       padding: 4rem 2rem;
       text-align: center;
@@ -264,8 +333,9 @@
       font-size: 1rem;
       color: #666;
     }
-    
-    /* Pricing Section */
+    /***********************************************/
+    /*                  PRICING                    */
+    /***********************************************/
     .pricing {
       background: #f1f4f8;
       padding: 4rem 2rem;
@@ -330,13 +400,15 @@
       border-radius: 50px;
       font-weight: bold;
       transition: background 0.3s ease, transform 0.3s ease;
+      text-align: center;
     }
     .buy-btn:hover {
       background: #1a1a2e;
       transform: scale(1.03);
     }
-    
-    /* Testimonials Section */
+    /***********************************************/
+    /*               TESTIMONIALS                  */
+    /***********************************************/
     .testimonials {
       padding: 4rem 2rem;
       text-align: center;
@@ -377,86 +449,9 @@
       color: #1a1a2e;
       font-size: 1.1rem;
     }
-    
-    /* Technologies Section */
-    .technologies {
-      padding: 4rem 2rem;
-      text-align: center;
-      background: #fff;
-    }
-    .technologies h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: #3a0ca3;
-    }
-    .technologies p {
-      font-size: 1.1rem;
-      max-width: 700px;
-      margin: 0 auto 2rem;
-      color: #555;
-    }
-    .tech-logos {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    .tech-logos img {
-      height: 50px;
-      transition: transform 0.3s ease;
-    }
-    .tech-logos img:hover {
-      transform: scale(1.1);
-    }
-    
-    /* Contact Section */
-    .contact {
-      padding: 4rem 2rem;
-      text-align: center;
-      background: #fff;
-    }
-    .contact h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: #3a0ca3;
-    }
-    .contact p {
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin: 0 auto 2rem;
-      color: #555;
-    }
-    .contact form {
-      max-width: 500px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-    }
-    .contact input,
-    .contact textarea {
-      width: 100%;
-      padding: 0.8rem;
-      margin-bottom: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    .contact button {
-      padding: 0.8rem;
-      background: #3a0ca3;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s ease, transform 0.3s ease;
-    }
-    .contact button:hover {
-      background: #1a1a2e;
-      transform: scale(1.03);
-    }
-    
-    /* Footer */
+    /***********************************************/
+    /*                   FOOTER                     */
+    /***********************************************/
     footer {
       background: #1a1a2e;
       color: #ccc;
@@ -489,42 +484,60 @@
       font-size: 0.9rem;
       margin-top: 1rem;
     }
-    
-    /* Responsive Design */
+    /***********************************************/
+    /*         BACK-TO-TOP BUTTON (ADDED)          */
+    /***********************************************/
+    #back-to-top {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      background-color: #3a0ca3;
+      color: #fff;
+      padding: 0.7rem 1rem;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      display: none;
+      z-index: 999;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    #back-to-top:hover {
+      background-color: #1a1a2e;
+      transform: scale(1.05);
+    }
+    /***********************************************/
+    /*                RESPONSIVENESS               */
+    /***********************************************/
     @media (max-width: 768px) {
       .hero h1 { font-size: 2.5rem; }
       .impact-text { font-size: 1.3rem; }
-      .nav-container {
-        flex-direction: column;
-      }
-      .lang-list {
-        margin-top: 0.5rem;
-        margin-left: 0;
-      }
+      .nav-container { flex-direction: column; }
+      .lang-list { margin-top: 0.5rem; margin-left: 0; }
+      .hero { padding: 5rem 1.5rem 3rem; }
     }
   </style>
 </head>
 <body>
-  <!-- Navigation -->
+
+  <!-- HEADER -->
   <header data-aos="fade-down" data-aos-duration="1000">
     <div class="logo-container">
       <div class="logo">Alogpt</div>
     </div>
-    <nav class="nav-container">
+    <nav class="nav-container" aria-label="Main navigation">
       <ul class="nav-links" id="nav-links">
-        <!-- Navigation items will be injected here -->
+        <!-- Navigation items will be injected by JS -->
       </ul>
-      <ul class="lang-list">
-        <li><button class="lang-btn" onclick="updateContent('mor')">مغربي</button></li>
-        <li><button class="lang-btn" onclick="updateContent('ksa')">سعودي</button></li>
-        <li><button class="lang-btn" onclick="updateContent('egy')">مصري</button></li>
+      <ul class="lang-list" aria-label="Language selector">
+        <li><button class="lang-btn" onclick="updateContent('mor')" aria-label="Select Moroccan dialect">مغربي</button></li>
+        <li><button class="lang-btn" onclick="updateContent('ksa')" aria-label="Select Saudi dialect">سعودي</button></li>
+        <li><button class="lang-btn" onclick="updateContent('egy')" aria-label="Select Egyptian dialect">مصري</button></li>
       </ul>
     </nav>
   </header>
-  
-  <!-- Hero Section with Dark Background Neural Network Animation -->
+
+  <!-- HERO SECTION -->
   <section class="hero" id="hero" data-aos="fade-up" data-aos-duration="1000">
-    <!-- Neural network moving background (dark theme) -->
     <canvas id="nn-canvas"></canvas>
     <div class="hero-content">
       <div class="impact-text" id="hero-impact"></div>
@@ -532,59 +545,58 @@
       <h1 id="hero-title"></h1>
       <p id="hero-desc"></p>
       <a href="#pricing" class="cta-btn" id="hero-cta"></a>
+      <!-- Inline Technologies Section Under "سجل دابا" -->
+      <div class="tech-section">
+        <h2 class="tech-title-inline">التقنيات المستخدمة</h2>
+        <p class="tech-desc-inline">شوف التقنيات والشركاء اللي كنستعملوهم لتطوير الدورة.</p>
+        <div class="tech-logos-inline">
+          <img src="https://pytorch.org/assets/images/pytorch-logo.png" alt="PyTorch Logo" loading="lazy">
+          <img src="https://www.tensorflow.org/images/tf_logo_social.png" alt="TensorFlow Logo" loading="lazy">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Keras_logo.svg/1200px-Keras_logo.svg.png" alt="Keras Logo" loading="lazy">
+          <img src="https://scikit-learn.org/stable/_static/images/logo_small.png" alt="Scikit-learn Logo" loading="lazy">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/NumPy_logo_2020.svg" alt="NumPy Logo" loading="lazy">
+        </div>
+      </div>
     </div>
   </section>
-  
-  <!-- White Background Neural Network Section -->
+
+  <!-- WHITE NEURAL NETWORK SECTION -->
   <section class="nn-white-section" id="nn-white-section" data-aos="fade-up" data-aos-duration="1000">
     <canvas id="nn-white-canvas"></canvas>
     <div class="nn-white-content">
-      <h2>Neural Networks on White Background</h2>
-      <p>This section demonstrates moving neural networks over a white background.</p>
+      <h2 id="nn-white-title"></h2>
+      <p id="nn-white-desc"></p>
     </div>
   </section>
-  
-  <!-- Features Section -->
+
+  <!-- FEATURES SECTION -->
   <section class="features" id="features" data-aos="fade-up" data-aos-duration="1000">
     <h2 id="features-title"></h2>
     <p id="features-desc"></p>
     <div class="feature-cards" id="features-cards">
-      <!-- Feature cards will be injected here -->
+      <!-- Feature cards will be injected by JS -->
     </div>
   </section>
-  
-  <!-- Pricing Section -->
+
+  <!-- PRICING SECTION -->
   <section class="pricing" id="pricing" data-aos="fade-up" data-aos-duration="1000">
     <h2 id="pricing-title"></h2>
     <p id="pricing-desc"></p>
     <div class="pricing-cards" id="pricing-cards">
-      <!-- Pricing cards will be injected here -->
+      <!-- Pricing cards will be injected by JS -->
     </div>
   </section>
-  
-  <!-- Testimonials Section -->
+
+  <!-- TESTIMONIALS SECTION -->
   <section class="testimonials" id="testimonials" data-aos="fade-up" data-aos-duration="1000">
     <h2 id="testimonials-title"></h2>
     <p id="testimonials-desc"></p>
     <div class="testimonial-cards" id="testimonials-cards">
-      <!-- Testimonial cards will be injected here -->
+      <!-- Testimonial cards will be injected by JS -->
     </div>
   </section>
-  
-  <!-- Technologies Section -->
-  <section class="technologies" id="technologies" data-aos="fade-up" data-aos-duration="1000">
-    <h2 id="tech-title"></h2>
-    <p id="tech-desc"></p>
-    <div class="tech-logos" id="tech-logos">
-      <img src="https://pytorch.org/assets/images/pytorch-logo.png" alt="PyTorch">
-      <img src="https://www.tensorflow.org/images/tf_logo_social.png" alt="TensorFlow">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Keras_logo.svg/1200px-Keras_logo.svg.png" alt="Keras">
-      <img src="https://scikit-learn.org/stable/_static/images/logo_small.png" alt="scikit-learn">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/NumPy_logo_2020.svg" alt="NumPy">
-    </div>
-  </section>
-  
-  <!-- Contact Section -->
+
+  <!-- CONTACT SECTION -->
   <section class="contact" id="contact" data-aos="fade-up" data-aos-duration="1000">
     <h2 id="contact-title"></h2>
     <p id="contact-desc"></p>
@@ -595,20 +607,25 @@
       <button type="submit" id="contact-button"></button>
     </form>
   </section>
-  
-  <!-- Footer -->
+
+  <!-- FOOTER -->
   <footer data-aos="fade-up" data-aos-duration="1000">
     <div class="footer-logo" id="footer-logo"></div>
     <ul id="footer-links">
-      <!-- Footer links will be injected here -->
+      <!-- Footer links will be injected by JS -->
     </ul>
     <p id="footer-copy"></p>
   </footer>
-  
-  <!-- Language, Content and Neural Network Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+  <!-- BACK-TO-TOP BUTTON -->
+  <button id="back-to-top" aria-label="Back to top">↑</button>
+
+  <!-- AOS Library & Custom JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
   <script>
-    // Translations for Moroccan Darija (mor), Saudi (ksa) and Egyptian (egy)
+    /***********************************************/
+    /*         TRANSLATIONS OBJECT                */
+    /***********************************************/
     const translations = {
       "mor": {
         "nav": {
@@ -625,6 +642,14 @@
           "desc": "انضم لينا ودير الفرق فمستقبلك – الدورة شاملة بـ200 د.م فقط.",
           "cta": "سجل دابا"
         },
+        "technologies": {
+          "title": "التقنيات المستخدمة",
+          "desc": "شوف التقنيات والشركاء اللي كنستعملوهم لتطوير الدورة."
+        },
+        "nnWhite": {
+          "title": "حقق نجاحاً مستقبلياً باستخدام تقنيات الذكاء الاصطناعي",
+          "desc": "اكتشف كيف يمكن لهاذ التجربة البصرية تحول الطريقة لي كتتواصل بها مع التكنولوجيا. الأنظمة العصبية كتوريك طرق جديدة لتحويل أفكارك لإنجازات حقيقية. استثمر دابا في تنمية مهاراتك وخذ أول خطوة لمستقبل مهني مشرق."
+        },
         "features": {
           "title": "مميزات الدورة",
           "desc": "استفد من منهجية تعليمية كتجمع بين العلم والتطبيق باستخدام أحدث التقنيات.",
@@ -639,8 +664,11 @@
           "title": "ثمن الدورة",
           "desc": "الدورة بـ200 د.م فقط – أو 20 دولار فالأسواق العالمية.",
           "cards": [
-            {"plan": "الخطة الأساسية", "price": "200 د.م", "features": ["الوصول للمحتوى الدراسي", "دعم فني أساسي"]},
-            {"plan": "الخطة الشاملة", "price": "200 د.م / 20$", "features": ["الوصول الكامل للدورة", "جلسات مباشرة", "شهادة معتمدة"]}
+            {
+              "plan": "الخطة الشاملة", 
+              "price": "200 د.م / 20$", 
+              "features": ["الوصول الكامل للدورة", "جلسات مباشرة", "شهادة معتمدة"]
+            }
           ]
         },
         "testimonials": {
@@ -651,10 +679,6 @@
             {"text": "المحتوى عملي ومفيد – فرصة ماتتعوضش.", "client": "منى"},
             {"text": "تجربة مميزة ساعدتني نطور من نفسي فالمجال.", "client": "سفيان"}
           ]
-        },
-        "technologies": {
-          "title": "التقنيات المستخدمة",
-          "desc": "شوف التقنيات والشركاء اللي كنستعملوهم لتطوير الدورة."
         },
         "contact": {
           "title": "تواصل معانا",
@@ -687,6 +711,14 @@
           "desc": "استعد لتطوير مسارك المهني مع دورة شاملة بسعر 20 دولار فقط.",
           "cta": "سجل الآن"
         },
+        "technologies": {
+          "title": "التقنيات المستخدمة",
+          "desc": "شوف التقنيات والشركاء اللي نستخدمهم لتطوير الدورة."
+        },
+        "nnWhite": {
+          "title": "حقق نجاحاً مستقبلياً مع تقنيات الذكاء الاصطناعي",
+          "desc": "اكتشف كيف تُحدث هذه التجربة البصرية ثورة في طريقة تواصلك مع التكنولوجيا، حيث تُظهِر لك قوة الأنظمة العصبية طرقاً مبتكرة لتحويل أفكارك إلى إنجازات ملموسة. استثمر في تطوير مهاراتك الآن وابدأ خطوتك الأولى نحو مستقبل مهني واعد."
+        },
         "features": {
           "title": "مميزات الدورة",
           "desc": "استفد من أحدث التقنيات ومنهجية تعليمية متطورة تجمع بين النظرية والتطبيق.",
@@ -701,8 +733,11 @@
           "title": "الأسعار",
           "desc": "الدورة بـ20 دولار فقط، فرصة استثنائية لتطوير مهاراتك.",
           "cards": [
-            {"plan": "الخطة الأساسية", "price": "$20", "features": ["الوصول للمحتوى التعليمي", "دعم فني"]},
-            {"plan": "الخطة الشاملة", "price": "$20", "features": ["الوصول الكامل للدورة", "جلسات مباشرة", "شهادة معتمدة"]}
+            {
+              "plan": "الخطة الشاملة", 
+              "price": "$20", 
+              "features": ["الوصول الكامل للدورة", "جلسات مباشرة", "شهادة معتمدة"]
+            }
           ]
         },
         "testimonials": {
@@ -713,10 +748,6 @@
             {"text": "محتوى مميز وتفاعل عالي من المدربين.", "client": "محمد"},
             {"text": "تجربة تعليمية راقية ستحدث فرقاً في مستقبلك.", "client": "فهد"}
           ]
-        },
-        "technologies": {
-          "title": "التقنيات المستخدمة",
-          "desc": "اطلع على التقنيات والشركاء الذين نستخدمهم لتطوير الدورة."
         },
         "contact": {
           "title": "اتصل بنا",
@@ -749,6 +780,14 @@
           "desc": "حان وقت تغيير مستقبلك مع دورة متكاملة بسعر 20 دولار بس.",
           "cta": "سجل دلوقتي"
         },
+        "technologies": {
+          "title": "التقنيات المستخدمة",
+          "desc": "شوف التقنيات والشركاء اللي بنستعملهم لتطوير الدورة."
+        },
+        "nnWhite": {
+          "title": "حقق نجاحاً مستقبلياً مع تقنيات الذكاء الاصطناعي",
+          "desc": "اتعرف إزاي التجربة البصرية دي بتحدث ثورة في أسلوب تواصلك مع التكنولوجيا، وبتبينلك قوة الأنظمة العصبية في تحويل أفكارك لإنجازات ملموسة. استثمر في تطوير مهاراتك دلوقتي وخد أول خطوة نحو مستقبل مهني واعد."
+        },
         "features": {
           "title": "مميزات الدورة",
           "desc": "استفيد من أحدث التقنيات ومنهجية تعليمية تجمع بين العلم والتطبيق العملي.",
@@ -763,8 +802,11 @@
           "title": "الأسعار",
           "desc": "الدورة بـ20 دولار بس، فرصة كبيرة لتطوير نفسك ومستقبلك.",
           "cards": [
-            {"plan": "الخطة الأساسية", "price": "$20", "features": ["الوصول للمحتوى", "دعم فني"]},
-            {"plan": "الخطة الشاملة", "price": "$20", "features": ["الوصول الكامل للدورة", "جلسات مباشرة", "شهادة معتمدة"]}
+            {
+              "plan": "الخطة الشاملة", 
+              "price": "$20", 
+              "features": ["الوصول الكامل للدورة", "جلسات مباشرة", "شهادة معتمدة"]
+            }
           ]
         },
         "testimonials": {
@@ -775,10 +817,6 @@
             {"text": "تجربة تعليمية مميزة مع محتوى عملي ومدربين محترفين.", "client": "منى"},
             {"text": "الدورة كانت خطوة كبيرة في تطوير ذاتي ومستقبلي.", "client": "عمرو"}
           ]
-        },
-        "technologies": {
-          "title": "التقنيات المستخدمة",
-          "desc": "شوف التقنيات والشركاء اللي بنشتغل بيهم عشان تطور مهاراتك."
         },
         "contact": {
           "title": "اتصل بينا",
@@ -798,13 +836,17 @@
       }
     };
 
-    // Update content based on selected language with animations
+    /***********************************************/
+    /*            UPDATE CONTENT FUNCTION          */
+    /***********************************************/
     function updateContent(lang) {
-      const t = translations[lang];
+      const t = translations[lang] || translations["mor"];
       
-      // Update Navigation
-      const navLinks = document.getElementById('nav-links');
-      navLinks.innerHTML = `
+      // Persist selected language
+      localStorage.setItem('selectedLang', lang);
+
+      // Navigation
+      document.getElementById('nav-links').innerHTML = `
         <li><a href="#hero">${t.nav.home}</a></li>
         <li><a href="#features">${t.nav.features}</a></li>
         <li><a href="#pricing">${t.nav.pricing}</a></li>
@@ -812,14 +854,22 @@
         <li><a href="#contact">${t.nav.contact}</a></li>
       `;
 
-      // Update Hero Section
+      // Hero Section
       document.getElementById('hero-impact').innerText = t.hero.impact;
       document.getElementById('hero-promo').innerText = t.hero.promo;
       document.getElementById('hero-title').innerText = t.hero.title;
       document.getElementById('hero-desc').innerText = t.hero.desc;
       document.getElementById('hero-cta').innerText = t.hero.cta;
 
-      // Update Features Section
+      // Inline Technologies Section in Hero
+      document.querySelector('.tech-title-inline').innerText = t.technologies.title;
+      document.querySelector('.tech-desc-inline').innerText = t.technologies.desc;
+
+      // White Neural Network Section
+      document.getElementById('nn-white-title').innerText = t.nnWhite.title;
+      document.getElementById('nn-white-desc').innerText = t.nnWhite.desc;
+
+      // Features Section
       document.getElementById('features-title').innerText = t.features.title;
       document.getElementById('features-desc').innerText = t.features.desc;
       const featuresCards = document.getElementById('features-cards');
@@ -834,27 +884,25 @@
         `;
       });
 
-      // Update Pricing Section
+      // Pricing Section
       document.getElementById('pricing-title').innerText = t.pricing.title;
       document.getElementById('pricing-desc').innerText = t.pricing.desc;
       const pricingCards = document.getElementById('pricing-cards');
       pricingCards.innerHTML = "";
       t.pricing.cards.forEach((card, index) => {
         let featuresList = "";
-        card.features.forEach(feat => {
-          featuresList += `<li>${feat}</li>`;
-        });
+        card.features.forEach(feat => { featuresList += `<li>${feat}</li>`; });
         pricingCards.innerHTML += `
           <div class="pricing-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="${index * 150}">
             <h3>${card.plan}</h3>
             <div class="price">${card.price}</div>
             <ul>${featuresList}</ul>
-            <a href="#" class="buy-btn">${t.hero.cta}</a>
+            <a href="#contact" class="buy-btn">${t.hero.cta}</a>
           </div>
         `;
       });
 
-      // Update Testimonials Section
+      // Testimonials Section
       document.getElementById('testimonials-title').innerText = t.testimonials.title;
       document.getElementById('testimonials-desc').innerText = t.testimonials.desc;
       const testimonialsCards = document.getElementById('testimonials-cards');
@@ -868,11 +916,7 @@
         `;
       });
 
-      // Update Technologies Section
-      document.getElementById('tech-title').innerText = t.technologies.title;
-      document.getElementById('tech-desc').innerText = t.technologies.desc;
-
-      // Update Contact Section
+      // Contact Section
       document.getElementById('contact-title').innerText = t.contact.title;
       document.getElementById('contact-desc').innerText = t.contact.desc;
       document.getElementById('contact-name').placeholder = t.contact.form.name;
@@ -880,68 +924,56 @@
       document.getElementById('contact-message').placeholder = t.contact.form.message;
       document.getElementById('contact-button').innerText = t.contact.form.button;
 
-      // Update Footer
+      // Footer Section
       document.getElementById('footer-logo').innerText = t.footer.logo;
       const footerLinks = document.getElementById('footer-links');
       footerLinks.innerHTML = "";
-      t.footer.links.forEach(link => {
-        footerLinks.innerHTML += `<li><a href="#">${link}</a></li>`;
-      });
+      t.footer.links.forEach(link => { footerLinks.innerHTML += `<li><a href="#">${link}</a></li>`; });
       document.getElementById('footer-copy').innerText = t.footer.copyright;
-      
-      // Refresh AOS animations after content update
+
+      // Refresh AOS animations
       AOS.refresh();
     }
 
-    // Neural Network Animation for Dark Background (Hero)
+    /***********************************************/
+    /*          DARK BACKGROUND ANIMATION          */
+    /***********************************************/
     function neuralNetworkAnimation() {
       const canvas = document.getElementById('nn-canvas');
       const ctx = canvas.getContext('2d');
-      
-      // Resize canvas to hero section size
-      function resizeCanvas() {
-        canvas.width = canvas.offsetWidth;
-        canvas.height = canvas.offsetHeight;
-      }
+      function resizeCanvas() { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; }
       resizeCanvas();
       window.addEventListener('resize', resizeCanvas);
-      
-      // Create particles for the neural network effect (white nodes)
       const particles = [];
-      const particleCount = 50; // Adjust number of nodes if needed
+      const particleCount = 50;
       function Particle() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
         this.vx = (Math.random() - 0.5) * 0.5;
         this.vy = (Math.random() - 0.5) * 0.5;
-        this.radius = 4; // Increased radius for bigger, clearer neurons
+        this.radius = 4;
       }
-      for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
-      }
-      
+      for (let i = 0; i < particleCount; i++) { particles.push(new Particle()); }
       function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        // Enable shadow for clarity
         ctx.shadowColor = 'rgba(255, 255, 255, 1)';
         ctx.shadowBlur = 4;
-        for (let i = 0; i < particles.length; i++) {
-          const p = particles[i];
+        particles.forEach(p => {
           p.x += p.vx;
           p.y += p.vy;
-          if(p.x < 0 || p.x > canvas.width) p.vx = -p.vx;
-          if(p.y < 0 || p.y > canvas.height) p.vy = -p.vy;
+          if (p.x < 0 || p.x > canvas.width) p.vx = -p.vx;
+          if (p.y < 0 || p.y > canvas.height) p.vy = -p.vy;
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
           ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
           ctx.fill();
-        }
+        });
         for (let i = 0; i < particles.length; i++) {
           for (let j = i + 1; j < particles.length; j++) {
             const dx = particles[i].x - particles[j].x;
             const dy = particles[i].y - particles[j].y;
             const distance = Math.sqrt(dx * dx + dy * dy);
-            if(distance < 100) {
+            if (distance < 100) {
               ctx.beginPath();
               ctx.moveTo(particles[i].x, particles[i].y);
               ctx.lineTo(particles[j].x, particles[j].y);
@@ -956,55 +988,45 @@
       draw();
     }
 
-    // Neural Network Animation for White Background Section (Dark Nodes)
+    /***********************************************/
+    /*        WHITE BACKGROUND ANIMATION           */
+    /***********************************************/
     function neuralNetworkAnimationWhite() {
       const canvas = document.getElementById('nn-white-canvas');
       const ctx = canvas.getContext('2d');
-      
-      // Resize canvas to section size
-      function resizeCanvas() {
-        canvas.width = canvas.offsetWidth;
-        canvas.height = canvas.offsetHeight;
-      }
+      function resizeCanvas() { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; }
       resizeCanvas();
       window.addEventListener('resize', resizeCanvas);
-      
-      // Create particles for neural network effect (dark nodes)
       const particles = [];
-      const particleCount = 50; // Adjust number of nodes if needed
+      const particleCount = 50;
       function Particle() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
         this.vx = (Math.random() - 0.5) * 0.5;
         this.vy = (Math.random() - 0.5) * 0.5;
-        this.radius = 4; // Increased radius for bigger, clearer neurons
+        this.radius = 4;
       }
-      for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
-      }
-      
+      for (let i = 0; i < particleCount; i++) { particles.push(new Particle()); }
       function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        // Enable shadow for clarity
         ctx.shadowColor = 'rgba(0, 0, 0, 1)';
         ctx.shadowBlur = 4;
-        for (let i = 0; i < particles.length; i++) {
-          const p = particles[i];
+        particles.forEach(p => {
           p.x += p.vx;
           p.y += p.vy;
-          if(p.x < 0 || p.x > canvas.width) p.vx = -p.vx;
-          if(p.y < 0 || p.y > canvas.height) p.vy = -p.vy;
+          if (p.x < 0 || p.x > canvas.width) p.vx = -p.vx;
+          if (p.y < 0 || p.y > canvas.height) p.vy = -p.vy;
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
           ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
           ctx.fill();
-        }
+        });
         for (let i = 0; i < particles.length; i++) {
           for (let j = i + 1; j < particles.length; j++) {
             const dx = particles[i].x - particles[j].x;
             const dy = particles[i].y - particles[j].y;
             const distance = Math.sqrt(dx * dx + dy * dy);
-            if(distance < 100) {
+            if (distance < 100) {
               ctx.beginPath();
               ctx.moveTo(particles[i].x, particles[i].y);
               ctx.lineTo(particles[j].x, particles[j].y);
@@ -1018,14 +1040,28 @@
       }
       draw();
     }
-    
-    // On page load: set default language, initialize AOS and animations
+
+    /***********************************************/
+    /*         BACK-TO-TOP BUTTON SCRIPT           */
+    /***********************************************/
+    const backToTopBtn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      backToTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    });
+
+    /***********************************************/
+    /*                  ON LOAD                    */
+    /***********************************************/
     window.onload = function() {
-      updateContent('mor');
+      const storedLang = localStorage.getItem('selectedLang') || 'mor';
+      updateContent(storedLang);
       AOS.init({ duration: 800, easing: 'ease-out', once: true });
       neuralNetworkAnimation();
       neuralNetworkAnimationWhite();
-    }
+    };
   </script>
 </body>
 </html>
